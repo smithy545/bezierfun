@@ -10,13 +10,12 @@
 
 #include "util/MathUtil.h"
 
-BezierCurve::BezierCurve(std::vector<glm::vec2> controlPoints, double stepSize) : degree(controlPoints.size()-1), stepSize(stepSize), controlPoints(std::move(controlPoints)) {}
+BezierCurve::BezierCurve(std::vector<glm::vec2> controlPoints, double stepSize) :
+                                                                degree(controlPoints.size()-1),
+                                                                stepSize(stepSize > 0 ? stepSize : 0.1),
+                                                                controlPoints(std::move(controlPoints)) {}
 
 std::vector<glm::vec2> BezierCurve::bezierNaive() {
-    // avoid infinite loop
-    if(stepSize <= 0.0)
-        return {};
-
     std::vector<glm::vec2> curvePoints;
     double t = 0.0;
     while(t <= 1.0) {

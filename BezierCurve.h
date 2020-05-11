@@ -13,9 +13,9 @@ class BezierCurve {
 public:
     BezierCurve(std::vector<glm::vec2> controlPoints, double stepSize);
 
-    // TODO: std::vector<glm::vec2> bezierDeCasteljau();    // generate geometrically
-    // TODO: std::vector<glm::vec2> bezierMatrix(double t);         // generate via matrix operations
-    std::vector<glm::vec2> bezierNaive();          // generate via polynomial function
+    // TODO: std::vector<glm::vec2> bezierDeCasteljau(); // generate geometrically
+    // TODO: std::vector<glm::vec2> bezierMatrix();      // generate via matrix operations
+    std::vector<glm::vec2> bezierNaive(); // generate via polynomial function
 private:
     // degree of polynomial representing curve
     int degree;
